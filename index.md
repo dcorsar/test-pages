@@ -6,3 +6,6 @@ In SDPO, SSN Deployments are viewed as PROV-O Activities (which is consistent wi
 
 Along with the ontology, a number of [PROV-Templates]( https://provenance.ecs.soton.ac.uk/prov-template/) are also [available on the github repo]( https://github.com/TrustLens/sdpo/tree/master/prov-templates/templates), which provide suggested provenance patterns for some of the deployment related activities.  In Luc Moreau’s words, PROV-Templates “describing the shape of provenance graphs to be generated” – for more information about PROV-Templates and how to use them with the [ProvToolbox]( http://lucmoreau.github.io/ProvToolbox/) , please see Luc’s two blog posts ([part one](https://lucmoreau.wordpress.com/2015/07/30/provtoolbox-tutorial-4-templates-for-provenance-part-1/), [part two](https://lucmoreau.wordpress.com/2015/08/03/provtoolbox-tutorial-4-templates-for-provenance-part-2/)).
    
+<object type="image/svg+xml" data="docs-resources/installexample.svg">
+  Your browser does not support SVG
+</object>
