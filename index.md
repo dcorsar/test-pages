@@ -33,7 +33,7 @@ Things to note about this example:
 * *smartMeter_v2* and *platform_v2* are [revisions of](https://www.w3.org/TR/prov-o/#wasRevisionOf) (a special type of derivation), reflecting that part of the original entities (*smartMeter_v1* and *platform_v1*) have changed. 
 
 ### Removing (uninstalling) a System
-There may come a point when the system is removed, which may well indicate the end of the deployment.  The following image shows how that can be described using the SDPO [Removal](https://trustlens.github.io/sdpo/index-en.html#Removal) class.
+There may come a point when the system is removed, which may well indicate the end of the deployment.  The following image shows how that can be described using the SDPO [Removal](https://trustlens.github.io/sdpo/index-en.html#Removal) class based on the [System Platform Removal](https://github.com/TrustLens/sdpo/blob/master/prov-templates/templates/SystemPlatformRemoval.provn) template.
 
 ![Example provenance record describing the removal of a smart meter from a platform.](docs-resources/install-system-platform.JPG).
 
