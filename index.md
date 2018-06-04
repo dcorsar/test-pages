@@ -13,7 +13,7 @@ This section provides some examples of how the deployment of a [smart meter](htt
 ### Installation
 The following image shows how the installation of a smater meter onto a platform could be described using SDPO, based on the [System Platform Installation template](https://github.com/TrustLens/sdpo/blob/master/prov-templates/templates/SystemPlatformInstallation.provn).  
 
-![Example provenance record describing the installation of a smart meter](docs-resources/install-system-platfrom.JPG).
+![Example provenance record describing the installation of a smart meter](docs-resources/install-system-platform.JPG).
 
 At the center of the image is the *install* activity, a type of [Installation](https://trustlens.github.io/sdpo/index-en.html#Installation) deployment related activity.  This uses the *smartMeter* and *platform* entities describing the smart meter that is being installed and the platform that it is being installed on respectively.  Only minimal information is provided about the smart meter and platform - in reality we would probably need some additional details, such as the manufacturer of the smart meter and the physical location of the platform.   In this provenance record, the *install* activity generates [specialisations](https://www.w3.org/TR/prov-o/#specializationOf) of the smart meter (*smartMeter_v1*) and platform (*platform_v1*).  These new entities share all aspects of the latter (so *smartMeter_v1* still has type ssn:System and *platform_v1* still has type sosa:Platform), and add additional aspects - that *smartMeter_v1* is hosted by *platform_v1* and *platform_v1* hosts *smartMeter_v1*).  
 
