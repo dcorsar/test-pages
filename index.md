@@ -13,21 +13,28 @@ This section provides some examples of how the deployment of a [smart meter](htt
 ### Installation
 The following image shows how the installation of a smater meter onto a platform could be described using SDPO, based on the [System Platform Installation template](https://github.com/TrustLens/sdpo/blob/master/prov-templates/templates/SystemPlatformInstallation.provn).  
 
-![Example provenance record describing the installation of a smart meter](docs-resources/install-system-platform.JPG).
+![Example provenance record describing the installation of a smart meter on a platform.](docs-resources/install-system-platform.JPG).
 
 At the center of the image is the *install* activity, a type of [Installation](https://trustlens.github.io/sdpo/index-en.html#Installation) deployment related activity.  This uses the *smartMeter* and *platform* entities describing the smart meter that is being installed and the platform that it is being installed on respectively.  Only minimal information is provided about the smart meter and platform - in reality we would probably need some additional details, such as the manufacturer of the smart meter and the physical location of the platform.   In this provenance record, the *install* activity generates [specialisations](https://www.w3.org/TR/prov-o/#specializationOf) of the smart meter (*smartMeter_v1*) and platform (*platform_v1*).  These new entities share all aspects of the latter (so *smartMeter_v1* still has type ssn:System and *platform_v1* still has type sosa:Platform), and add additional aspects - that *smartMeter_v1* is hosted by *platform_v1* and *platform_v1* hosts *smartMeter_v1*).  
 
-As the installation activity, smart meter, and platform are described using PROv-O, we can add additional provenance information - such as the person that carried out the installation, when it was completed, etc. using standard PROV concepts.  
+As the installation activity, smart meter, and platform are described using PROV-O, we can add additional provenance information - such as the person that carried out the installation, when it was completed, etc. using standard PROV concepts.  
 
 ### Replacing a SubSystem
 Consider the scenario where the smart meter has been deployed for a period of time and one of the sensors develops a fault and needs to be replaced. We can model this using the SDPO [System Replacement](https://trustlens.github.io/sdpo/index-en.html#SystemReplacement) activity.  The following image shows how that could be described using the [System Sybsystem Replacement](https://github.com/TrustLens/sdpo/blob/master/prov-templates/templates/SystemSubsystemReplacement.provn) template.
 
-![Example provenance record describing the installation of a smart meter](docs-resources/replace-system-sensor.JPG).
+![Example provenance record describing the replacement of a sensor on a smart meter.](docs-resources/replace-system-sensor.JPG).
 
-There are a couple of things to note about this example:
+Things to note about this example:
 * SDPO views a SSN System as PROV Collection of subsystems - as per the earlier SSN-PROV-O alignment. Hence *smartMeter_v1* has type prov:Collection (which has member *sensor*) and and ssn:System (which has subsystem *ex:sensor*).
 * The *replaceSensor* activity replaces the *sensor_1* subsystem of *smartMeter_v1* with a new sensor, *sensor_2*.  
 * Following completion of the *replaceSensor* activity, *sensor_1* is no longer a subsystem of the smart meter - it has been replaced with *sensor_2*.  
 * As the components of the smart meter have changed, a new description of the smart meter (*smartMeter_v2*) is created, reflecting the new components.
 * As *smartMeter_v2* is now the latest description of the smart meter, the description of the platform (*platform_v1*) is updated to reflect that it now hosts *smartMeter_v2*.  
 * *smartMeter_v2* and *platform_v2* are [revisions of](https://www.w3.org/TR/prov-o/#wasRevisionOf) (a special type of derivation), reflecting that part of the original entities (*smartMeter_v1* and *platform_v1*) have changed. 
+
+### Removing (uninstalling) a System
+There may come a point when the system is removed, which may well indicate the end of the deployment.  The following image shows how that can be described using the SDPO [Removal](https://trustlens.github.io/sdpo/index-en.html#Removal) class.
+
+![Example provenance record describing the removal of a smart meter from a platform.](docs-resources/install-system-platform.JPG).
+
+This example is the mirror of the installation example above: the *smartMeter_v3* which is hosed by the *platform_v2* is used by the *remove* activity.  This generates new descriptions of the smarter meter (*smartMeter_v4*) and platform (*platform_v3*) reflecting that the smart meter is no longer hosted by the platform.  
