@@ -22,6 +22,12 @@ As the installation activity, smart meter, and platform are described using PROv
 ### Replacing a SubSystem
 Consider the scenario where the smart meter has been deployed for a period of time and one of the sensors develops a fault and needs to be replaced. We can model this using the SDPO [System Replacement](https://trustlens.github.io/sdpo/index-en.html#SystemReplacement) activity.  The following image shows how that could be described using the [System Sybsystem Replacement](https://github.com/TrustLens/sdpo/blob/master/prov-templates/templates/SystemSubsystemReplacement.provn) template.
 
-
 ![Example provenance record describing the installation of a smart meter](docs-resources/replace-system-sensor.JPG).
 
+There are a couple of things to note about this example:
+* SDPO views a SSN System as PROV Collection of subsystems - as per the earlier SSN-PROV-O alignment. Hence *smartMeter_v1* has type prov:Collection (which has member *sensor*) and and ssn:System (which has subsystem *ex:sensor*).
+* The *replaceSensor* activity replaces the *sensor_1* subsystem of *smartMeter_v1* with a new sensor, *sensor_2*.  
+* Following completion of the *replaceSensor* activity, *sensor_1* is no longer a subsystem of the smart meter - it has been replaced with *sensor_2*.  
+* As the components of the smart meter have changed, a new description of the smart meter (*smartMeter_v2*) is created, reflecting the new components.
+* As *smartMeter_v2* is now the latest description of the smart meter, the description of the platform (*platform_v1*) is updated to reflect that it now hosts *smartMeter_v2*.  
+* *smartMeter_v2* and *platform_v2* are [revisions of](https://www.w3.org/TR/prov-o/#wasRevisionOf) (a special type of derivation), reflecting that part of the original entities (*smartMeter_v1* and *platform_v1*) have changed. 
