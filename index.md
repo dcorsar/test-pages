@@ -1,3 +1,3 @@
-## Welcome to my test page
+The System Deployment Provenance Ontology (SDPO) is an extension of the [PROV-O ontology](http://www.w3.org/TR/prov-o/) and the [Semantic Sensor Network Ontology](https://www.w3.org/TR/vocab-ssn/) (SSN) created to describe the activities, entities, and agents that have influenced the deployment of SSN Systems.  [SSN Systems]( https://www.w3.org/TR/vocab-ssn/#SSNSystem) represent pieces of infrastructure that can be composed of subsystems, such as [Sensors]( https://www.w3.org/TR/vocab-ssn/#SOSASensor), [Actuators]( https://www.w3.org/TR/vocab-ssn/#SOSAActuator), and [Samplers](https://www.w3.org/TR/vocab-ssn/#SOSASampler) in a variety of domains, including the Internet of Things.  
 
-This is a test page to see how it works
+SDPO extends the existing expressive capability of System [deployments]( https://www.w3.org/TR/vocab-ssn/#SSNDeployment) provided by SSN 
